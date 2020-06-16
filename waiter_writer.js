@@ -1,11 +1,13 @@
-let fs = require("fs");
+const fs = require("fs");
 
-let file = "sample.txt";
+const proj_dir = "C:\\Users\\GiulianoDiEnrico\\Desktop\\SkyCivEng";
+const pack_dir = `${proj_dir}\\design-connections-calculations`;
+const mod_dir = `${pack_dir}\\Calculations\\AISC\\WtoW\\modules`;
+const rel_path = `${mod_dir}\\block_shear\\`;
 
-let rel_path = `${__dirname}/${file}`;
+const file = "block_shear_AISC.js";
 
 let i = 0;
-
 const main = () => {
 
 	let dt = new Date();
@@ -14,11 +16,11 @@ const main = () => {
 	let log = fs.createWriteStream(rel_path, { flags: 'a' });
 
 	if (file.indexOf(".js") > -1) {
-	// for javascript 
-		var data = `// TODO: save file; prep work`;
+		// for javascript 
+		var data = `// TODO: save file; commit your work`;
 	}
-	else if (file.indexOf(".py") > -1) {  
-	// for python
+	else if (file.indexOf(".py") > -1) {
+		// for python
 		var data = `# REM: save file; prep work`;
 	}
 	else {
@@ -40,6 +42,6 @@ let int = mins * 6 * 10000;
 const waiter = () => {
 	main();
 	setTimeout(() => runnr(waiter), int);
-}
+};
 
 waiter();
